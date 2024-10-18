@@ -19,7 +19,6 @@
             return view("edit",'Edit Page',$product);
         }
 
-
         public function update() {
 
             $id = htmlspecialchars(strip_tags($_POST['id']));
@@ -79,7 +78,11 @@
             Product::delete($id);
             header('Location: /');
         }
+
+        public function take_api(){
+            $data = Product::getAll();
+            dd(api($data)) ;
+        }
     }
     
-
 ?>

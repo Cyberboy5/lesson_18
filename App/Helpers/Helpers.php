@@ -29,4 +29,16 @@ if(!function_exists('get_user')){
         return Auth::user();
     }
 }
+
+if(!function_exists('api')){
+    function api($data){
+        header("Content-Type: application/json");
+        $json_form = json_encode(['data' => $data],JSON_PRETTY_PRINT);
+        return $json_form;
+    }
+}
+
+
+
+
 ?>

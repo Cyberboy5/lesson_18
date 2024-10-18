@@ -12,6 +12,6 @@ Route::post('/edit',[ProductController::class,'edit_page']);
 Route::post('/delete',[ProductController::class,'delete']);
 Route::post('/update',[ProductController::class,'update']);
 
-
+Route::get('/take_api',[ProductController::class,'take_api']);
 
 ?>
