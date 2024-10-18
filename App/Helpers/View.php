@@ -4,7 +4,7 @@ namespace App\Helpers;
 
 class View{
 
-    public static function make($view,$title,$authors_genres = []){
+    public static function make($view,$title,$data = []){
 
         ob_start();
         include dirname(__DIR__) . "/Views/" . $view . ".php";

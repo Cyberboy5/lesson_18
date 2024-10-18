@@ -128,7 +128,7 @@ abstract class Model implements Form {
     public static function connect() {
         if (self::$conn === null) {  // Only create a new connection if none exists
             try {
-                self::$conn = new PDO('mysql:host=localhost;dbname=lesson_16_db', 'root', 'Cyberboy@5');
+                self::$conn = new PDO('mysql:host=localhost;dbname=lesson_18_db', 'root', 'Cyberboy@5');
                 self::$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             } catch (PDOException $e) {
                 echo 'Connection Error: ' . $e->getMessage();
@@ -187,6 +187,7 @@ abstract class Model implements Form {
     }
 
     public static function get_data($data) {
+        // dd($data);
         $values = '';
         foreach ($data as $key => $value) {
             if ($key == 'password') {
@@ -196,8 +197,9 @@ abstract class Model implements Form {
         }
 
         $cleanString = rtrim($values, "AND ");
+        // dd($cleanString);
         try {
-            $stmt = self::connect()->prepare("SELECT * FROM users WHERE " . $cleanString);
+            $stmt = self::connect()->prepare("SELECT * FROM " . static::$table_name . " WHERE " . $cleanString);
             $stmt->execute();
             return $stmt->fetch(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {

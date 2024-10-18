@@ -1,36 +1,20 @@
 
-CREATE DATABASE lesson_16_db;
+CREATE DATABASE lesson_18_db;
 
-USE lesson_16_db;
+USE lesson_18_db;
 
-
-CREATE TABLE author(
-    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(255)
+CREATE TABLE products (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    quantity INT NOT NULL,
+    image VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE genre(
-    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(255)
-);
-
-CREATE TABLE book(
-    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    title VARCHAR(255),
-    description TEXT,
-    text TEXT,
-    genre_id INT, 
-    author_id INT,
-    image TEXT
-);
-
-DROP TABLE users;
-
-CREATE TABLE users(
-    id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(255),
-    email TEXT,
-    password VARCHAR(64),
-    role VARCHAR(64) DEFAULT 'user'
-);
-
+INSERT INTO products (name, price, quantity, image) 
+VALUES 
+('Apple iPhone 14', 999.99, 10, 'uploads/iphone14.jpg'),
+('Samsung Galaxy S21', 799.99, 20, 'uploads/galaxys21.jpg'),
+('Google Pixel 6', 599.99, 15, 'uploads/pixel6.jpg'),
+('Sony WH-1000XM4 Headphones', 349.99, 8, 'uploads/sony_wh1000xm4.jpg'),
+('Dell XPS 13 Laptop', 1199.99, 5, 'uploads/dell_xps13.jpg');
