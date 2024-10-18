@@ -25,7 +25,7 @@
             $id = htmlspecialchars(strip_tags($_POST['id']));
             $name = htmlspecialchars(strip_tags($_POST['name']));
             $price = htmlspecialchars(strip_tags($_POST['price']));
-            $quantity = htmlspecialchars(strip_tags($_POST['quatity']));
+            $quantity = htmlspecialchars(strip_tags($_POST['quantity']));
 
             $data = [
                 'name' => $name,
@@ -48,11 +48,12 @@
         }
     
         public function store() {
-            if(isset($_POST['submit']) && !empty($_POST['name']) && !empty($_POST['price']) && !empty($_POST['qunatity'])){
+            // dd($_POST);
+            if(isset($_POST['submit']) && !empty($_POST['name']) && !empty($_POST['price']) && !empty($_POST['quantity'])){
 
                 $name = htmlspecialchars(strip_tags($_POST['name']));
                 $price = htmlspecialchars(strip_tags($_POST['price']));
-                $quantity = htmlspecialchars(strip_tags($_POST['quatity']));
+                $quantity = htmlspecialchars(strip_tags($_POST['quantity']));
 
                 $data = [
                     'name' => $name,
@@ -69,7 +70,6 @@
                     $data['image'] = $targetFile;
                 }
             }
-            
             Product::create($data);
             header('Location: /');
         }

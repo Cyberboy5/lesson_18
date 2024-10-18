@@ -20,4 +20,5 @@
         <img src="<?= $data['image'] ?>" width="100" height="100" alt="Current Image">
     </div>
     <button type="submit" class="btn btn-primary">Update Product</button>
+    <a  class = "btn btn-danger" href="/" >Back</a>  
 </form>

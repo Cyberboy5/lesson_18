@@ -18,4 +18,5 @@
         <input type="file" class="form-control" id="image" name="image">
     </div>
     <button type="submit" name="submit" class="btn btn-primary">Add Product</button>
+    <a href="/" class="btn btn-danger">Back</a>
 </form>

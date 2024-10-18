@@ -17,7 +17,7 @@ class Product extends Model {
         $setClause = rtrim($setClause, ', ');
 
         $query = "UPDATE " . static::$table_name . " SET $setClause WHERE id = :id";
-
+        // dd($query);
         try {
             $stmt = self::connect()->prepare($query);
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
